@@ -5,6 +5,9 @@ Internationalizing Dates (Intl) - [mdn link](Intl.DateTimeFormat)
 
 Internalization of data (time, currency, numbers). User browser language ca be get from `navigator.language`
 
+example: `const num = 123;`
+`const options = = { style: 'currency', currency: 'EUR' }`
+`console.log(navigator.language, new NumberFormat(navigator.language, options).format(num)`
 
 `??` operator -> [mdn link](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
 
