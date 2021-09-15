@@ -8,13 +8,13 @@ Internalization of data (time, currency). User browser language ca be get from `
 
 `??` operator -> [mdn link](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
 
-`const foo = null ?? 'default string';
-console.log(foo);
-// expected output: "default string"
+`const foo = null ?? 'default string';`
+`console.log(foo);`
+`// expected output: "default string"`
 
-const baz = 0 ?? 42;
-console.log(baz);
-// expected output: 0`
+`const baz = 0 ?? 42;`
+`console.log(baz);`
+`// expected output: 0`
 
 
 
