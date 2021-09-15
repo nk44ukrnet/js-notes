@@ -56,7 +56,7 @@ Usage (based on call example)
 
 ### String.prototype.padStart() and String.prototype.padEnd()
 
-adds padding to string, example:
+adds padding to string (__not css padding__), example:
 `'abc'.padStart(10);         // "       abc"`
 
 `'abc'.padStart(10, "foo");  // "foofoofabc"`
