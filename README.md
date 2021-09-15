@@ -37,7 +37,7 @@ Returns unique values from array `new Set([1,1,1,4])` => `[1,4]` - this will be 
 
 Usage: `logName.call(personObj, 'hi')`
 
-calls function with defined ___this___
+calls function with  ___this___ related to object
 
 ### bind
 Creates another function, based on previous (binds this, can also bind other parameters)
