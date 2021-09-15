@@ -70,3 +70,8 @@ adds padding to string (__not css padding__), example:
 Usefula case: When you need to display time like : `01:59` format
 
 `'1'.padStart(2, '0');` => will be result __'01'__ as string
+
+### setting css :root { --primary: #eee }
+`document.documentElement.style.setProperty('--primary', '#000')`
+
+Can be usefull to create dark theme (by changing css variables colors);
