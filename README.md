@@ -66,3 +66,7 @@ adds padding to string (__not css padding__), example:
 `'abc'.padStart(8, "0");     // "00000abc"`
 
 '`abc'.padStart(1);          // "abc"`
+
+Usefula case: When you need to display time like : `01:59` format
+
+`'1'.padStart(2, '0');` => will be result __'01'__ as string
