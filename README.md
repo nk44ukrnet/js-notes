@@ -26,3 +26,6 @@ $number - by default set 1. If you need deeper - paste bigger number.
 `.flatMap( function(item) {} )` - same as flat (flats only 1 level arrray. In the callback function - use .map() for arrays
 
 
+### new Set([1,2,3,4])
+
+Returns unique values from array `new Set([1,1,1,4])` => `[1,4]` - this will be not array anymore. So you can make it array again by  `let arrAgain = [...setVariable];`
