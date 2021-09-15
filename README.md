@@ -40,4 +40,13 @@ Usage: `logName.call(personObj, 'hi')`
 calls function with defined ___this___
 
 ### bind
-Creates another function, based on previous (binds this)
+Creates another function, based on previous (binds this, can also bind other parameters)
+
+Usage (based on call example) 
+`const personObj = {name: 'Sarah'}`
+
+`function logName(greet = 'yo'){ console.log (greet, this.name); }`
+
+`const logNamePredifined =  logName.bind(personObj, 'Buenos dias ')`
+
+`logNamePredifined();`
