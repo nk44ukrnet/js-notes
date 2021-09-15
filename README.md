@@ -29,3 +29,14 @@ $number - by default set 1. If you need deeper - paste bigger number.
 ### new Set([1,2,3,4])
 
 Returns unique values from array `new Set([1,1,1,4])` => `[1,4]` - this will be not array anymore. So you can make it array again by  `let arrAgain = [...setVariable];`
+
+### call
+`const personObj = {name: 'Sarah'}`
+`function logName(greet = 'yo'){ console.log (greet, this.name); }`
+
+Usage: `logName.call(personObj, 'hi')`
+
+calls function with defined ___this___
+
+### bind
+Creates another function, based on previous (binds this)
