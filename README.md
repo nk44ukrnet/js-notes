@@ -3,7 +3,7 @@ language notes
 
 Internationalizing Dates (Intl) - [mdn link](Intl.DateTimeFormat)
 
-Internalization of data (time, currency). User browser language ca be get from `navigator.language`
+Internalization of data (time, currency, numbers). User browser language ca be get from `navigator.language`
 
 
 `??` operator -> [mdn link](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
