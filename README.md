@@ -1,0 +1,2 @@
+# js-notes
+language notes
