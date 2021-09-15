@@ -32,6 +32,7 @@ Returns unique values from array `new Set([1,1,1,4])` => `[1,4]` - this will be 
 
 ### call
 `const personObj = {name: 'Sarah'}`
+
 `function logName(greet = 'yo'){ console.log (greet, this.name); }`
 
 Usage: `logName.call(personObj, 'hi')`
