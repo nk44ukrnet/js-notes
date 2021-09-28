@@ -75,3 +75,7 @@ Usefula case: When you need to display time like : `01:59` format
 `document.documentElement.style.setProperty('--primary', '#000')`
 
 Can be usefull to create dark theme (by changing css variables colors);
+
+### Promises
+
+Promises reference at `promises.js` file
