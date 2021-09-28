@@ -747,3 +747,186 @@ const loadAll = async function (imgArr) {
 };
 loadAll(['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg']);
 */
+
+'use strict';
+
+// const btn = document.querySelector('.btn-country');
+// const countriesContainer = document.querySelector('.countries');
+//
+// ///////////////////////////////////////
+//
+// const request = new XMLHttpRequest();
+// request.open('GET', 'https://restcountries.eu/rest/v2/name/ukraine');
+// request.send();
+// request.addEventListener('load', function () {
+//     //console.log(this.responseText);
+//     const [data] = JSON.parse(this.responseText);
+//     console.log(data);
+//     let html = `
+//     <article class="country">
+//           <img class="country__img" src="${data.flag}" />
+//           <div class="country__data">
+//             <h3 class="country__name">${data.name}</h3>
+//             <h4 class="country__region">${data.region}</h4>
+//             <p class="country__row"><span>👫</span>${data.population}</p>
+//             <p class="country__row"><span>🗣️</span>${data.languages[0].name}</p>
+//             <p class="country__row"><span>💰</span>${data.currencies[0].name}</p>
+//           </div>
+//         </article>
+//     `;
+//     countriesContainer.insertAdjacentHTML('beforeend', html);
+//     countriesContainer.style.opacity = 1;
+// });
+
+//let initialRequest = fetch('https://restcountries.eu/rest/v2/name/ukraine');
+//console.log(request);
+
+const getJSON = function (url, errorMsg = 'Something went wrong') {
+    return fetch(url).then(
+        (res) => {
+            if (!res.ok) {
+                throw new Error('');
+            }
+            return res.json();
+        }
+    )
+}
+
+function whereAmI(coords) {
+    if (!Array.isArray(coords)) return;
+    let [lat, long] = coords;
+    console.log(lat, long);
+    lat = +lat.toFixed(3) + '';
+    long = +long.toFixed(3) + '';
+    console.log(lat, long);
+    fetch(`https://geocode.xyz/${lat},${long}?geoit=json`)
+        .then(res => {
+            if (res.ok && (res.status >= 200 && res.status < 300)) {
+                console.log(res.ok, res.status);
+                //return res.json()
+            } else {
+                throw new Error(`Geolocation error! (${res.status})`)
+            }
+        })
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error(`${error.message}`)
+        })
+}
+
+navigator.geolocation.getCurrentPosition((e) => {
+    const {latitude, longitude} = e.coords;
+    //whereAmI([latitude, longitude])
+}, (e) => {
+    console.log('Failed to get geolocation');
+})
+
+
+//whereAmI();
+
+const lotteryPromise = new Promise(function (resolve, reject) {
+    console.log('draw is happening');
+    setTimeout(function () {
+        if (Math.random() >= 0.5) {
+            resolve('You won')
+        } else {
+            reject(new Error('You lost your ///'));
+        }
+    }, 2000)
+});
+
+lotteryPromise.then(res => console.log(res)).catch(e => console.error(e));
+
+//promisifying setTimeout
+const wait = function (seconds) {
+    return new Promise(function (resolve) {
+        setTimeout(resolve, seconds * 1000);
+    });
+}
+wait(2).then(() => {
+    console.log('waited for 2 sec');
+    return wait(1);
+})
+    .then(() => {
+        console.log('waited for 1 more sec')
+    });
+
+
+const getPosition = function () {
+    return new Promise(function (resolve, reject) {
+        // navigator.geolocation.getCurrentPosition(
+        //     position=>resolve(position),
+        //     err=> reject(err)
+        // );
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
+}
+
+getPosition().then(res => console.log(res));
+
+// chall 2
+let url1 = 'https://inventor.com.ua/images/b4_p1_1.png',
+    url2 = 'https://inventor.com.ua/images/b4_p1_2.png';
+
+function createImage(url) {
+    return new Promise((resolve,reject) => {
+        //document.querySelector('.images').append(newImg);
+        const newImg = document.createElement('img');
+        newImg.src = url;
+        newImg.addEventListener('load', function () {
+            //document.querySelector('.images').append(newImg)
+            document.querySelector('.images').append(newImg);
+            resolve(newImg);
+        });
+        newImg.addEventListener('error', function () {
+            reject(new Error (`Failed to load an image!`));
+        });
+    })
+}
+
+// let img;
+//
+// createImage(url1)
+//     .then(data => {
+//         img = data;
+//         return wait(2);
+//     })
+//     .then(()=>{
+//         img.style.display = 'none';
+//         return createImage(url2);
+//     })
+//     .then((data)=> {
+//         img = data;
+//         return wait(2);
+//     })
+//     .then(()=>{
+//         img.style.display = 'none';
+//     })
+//     .catch(err=>console.log('error!', err));
+
+async function whereAmI2(country) {
+    const res = await fetch('');
+}
+
+//async func example
+async function getInventorData(url = 'https://inventor.com.ua/modules/user_get_locations_info.php') {
+  try {
+  const res = await fetch(url);
+  if(!res.ok) throw new Error();
+  return await res.text();
+  } catch (e) {
+    console.log(e);
+    throw Error(e);
+  }
+}
+(async function(){
+  try {
+  let res = await getInventorData();
+  res = JSON.parse(res);
+  console.log(res);
+  } catch (e) {
+    console.log(e);
+  }
+})()
