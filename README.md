@@ -42,6 +42,16 @@ Usage: `logName.call(personObj, 'hi')`
 
 calls function with  ___this___ related to object
 
+function.call(context, comma, separated)
+
+You shoul specify manualy: every  element, comma separated
+
+### apply
+
+```function.apply(context, ['a','r','r','a','y'])```
+
+you need to pass __array__ of arguments. There can be as many as you want
+
 ### bind
 Creates another function, based on previous (binds this, can also bind other parameters)
 
