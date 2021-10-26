@@ -42,7 +42,7 @@ Usage: `logName.call(personObj, 'hi')`
 
 calls function with  ___this___ related to object
 
-function.call(context, comma, separated)
+`function.call(context, comma, separated)`
 
 You shoul specify manualy: every  element, comma separated
 
